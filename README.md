@@ -2,6 +2,13 @@
 
 Training a (very smol) large language model to write Bluey episodes.
 
+Objectives:
+
+* Explore the new llama.cpp `train-text-from-scratch` demo
+* Demonstrate how to scrape and clean a simple data-set from scratch
+* Experiment with model sizes and training parameters
+* Have fun!
+
 ## Scrape
 
 `scrape.py` downloads Episode transcripts from https://blueypedia.fandom.com/
@@ -57,4 +64,8 @@ You can then run inference with this model:
 ./main -m ggml-bluey-256x16-f32-v1.bin -n 128
 ```
 
-To train with another 32k tokens, repeat with `--checkpoint-in chk-bluey-256x16-run1.bin` 
+## Fine tune!
+
+To train on another 32k tokens, repeat with `--checkpoint-in chk-bluey-256x16-run1.bin` 
+
+We have 2.3M tokens to work with. Figuring out the ideal model size and training parameters is the challenge!
