@@ -1,5 +1,8 @@
 import requests
+import os
 from bs4 import BeautifulSoup
+
+os.makedirs('scrape/',exist_ok=True)
 
 scripts_url = 'https://blueypedia.fandom.com/wiki/Category:Script'
 scripts_html = requests.get(scripts_url).text
@@ -11,7 +14,7 @@ for link in script_links:
         script_soup = BeautifulSoup(script_html, 'html.parser')
         script_name = script_soup.find('h1').text.replace('/Script','').strip()
         script_text = script_soup.find('div', {'class': 'mw-parser-output'}).text
-        with open(script_name + '.txt', 'w') as f:
+        with open('scrape/'+ script_name + '.txt', 'w') as f:
             f.write(script_text)
         print('Done with ' + script_name)
     else:
