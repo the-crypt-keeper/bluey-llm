@@ -1,12 +1,11 @@
 ./train-text-from-scratch \
     --vocab-model models/ggml-vocab.bin \
-    --predict 128 \
-    --ctx 128 \
-    --embd 256 \
+    --ctx 256 \
+    --embd 192 \
     --head 8 \
-    --layer 16 \
-    --checkpoint-out chk-bluey-256x16-run1.bin \
-    --model-out ggml-bluey-256x16-f32-v1.bin \
+    --layer 4 \
+    --checkpoint-out chk-bluey-8x4x192.bin \
+    --model-out ggml-bluey-8x4x192-v1.bin \
     --train-data "bluey.txt" \
     -t 4 -b 8 -n 32 --seed 1 \
     --adam-iter 16 \
